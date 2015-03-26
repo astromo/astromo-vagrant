@@ -176,8 +176,8 @@ Vagrant.configure("2") do |config|
         d.build_image "./docker-postgresql",   args: "--rm=true -t 'astromo/postgresql'"
 
         # Run our images in a new container
-        d.run "astromo/astromo-api",  args: "-p 3000:3000 --name='astromo-api' --env JWT_SECRET='foo'"
         d.run "astromo/postgresql",   args: "-p 5432:5432 --name='astromo-postgresql' --env POSTGRES_PASSWORD=root"
+        d.run "astromo/astromo-api",  args: "-p 3000:3000 --name='astromo-api' --env JWT_SECRET='foo'"
       end
 
     end

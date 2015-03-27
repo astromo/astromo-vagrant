@@ -5,7 +5,7 @@ echo "LC_ALL='en_US.UTF-8'" >> /etc/environment
 
 # Grab updated packages and update them
 apt-get update
-sudo apt-get upgrade
+sudo apt-get upgrade -y
 
 # Trust GitHub
 sh /vagrant/provisions/known_hosts.sh

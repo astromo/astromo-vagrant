@@ -18,3 +18,6 @@ sudo apt-get -y install build-essential git
 
 # Install InfluxDB, a Time Series Database
 . $PACKAGES/influxdb/influxdb.sh
+
+# Install io.js
+. $PACKAGES/iojs/iojs.sh

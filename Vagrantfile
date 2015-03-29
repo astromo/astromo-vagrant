@@ -23,5 +23,12 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder ".", "/vagrant", type: "nfs"
 
   # Bootstrap our Vagrant
-  config.vm.provision "shell", path: "provisions/bootstrap.sh"
+  config.vm.provision "shell",
+  path: "provisions/bootstrap.sh",
+  privileged: true
+
+  # Run our code
+  config.vm.provision "shell",
+  path: "provisions/run.sh",
+  privileged: false
 end

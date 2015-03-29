@@ -14,10 +14,16 @@ sudo apt-get upgrade -y
 sudo apt-get -y install build-essential git
 
 # Install PostgreSQL server
-. $PACKAGES/postgresql/postgresql.sh
+if ! type "psql" > /dev/null; then
+  . $PACKAGES/postgresql/postgresql.sh
+fi
 
 # Install InfluxDB, a Time Series Database
-. $PACKAGES/influxdb/influxdb.sh
+if ! type "influxdb" > /dev/null; then
+  . $PACKAGES/influxdb/influxdb.sh
+fi
 
 # Install io.js
-. $PACKAGES/iojs/iojs.sh
+if ! type "iojs" > /dev/null; then
+  . $PACKAGES/iojs/iojs.sh
+fi

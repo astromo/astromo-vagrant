@@ -10,8 +10,8 @@ echo "LC_ALL='en_US.UTF-8'" >> /etc/environment
 apt-get update
 sudo apt-get upgrade -y
 
-# Trust GitHub
-sh $PROVISIONS/known_hosts.sh
+# Install build essentials and git
+sudo apt-get -y install build-essential git
 
 # Install PostgreSQL server
 . $PACKAGES/postgresql/postgresql.sh

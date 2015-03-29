@@ -11,3 +11,6 @@ for file in $ASTROMO/*.sh; do
   echo "Executing $file"
   . $file
 done
+
+pm2 save
+sudo pm2 startup linux -u vagrant

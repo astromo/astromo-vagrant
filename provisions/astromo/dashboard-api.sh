@@ -1,4 +1,4 @@
 cd /vagrant/src/dashboard-api/
 npm install
 
-pm2 start server.js --watch
+JWT_SECRET=foo pm2 start server.js --watch

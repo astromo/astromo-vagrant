@@ -14,7 +14,7 @@ sudo apt-get upgrade -y
 sh $PROVISIONS/known_hosts.sh
 
 # Install PostgreSQL server
-sh $PACKAGES/postgresql/postgresql.sh
+. $PACKAGES/postgresql/postgresql.sh
 
 # Install InfluxDB, a Time Series Database
-sh $PACKAGES/influxdb/influxdb.sh
+. $PACKAGES/influxdb/influxdb.sh

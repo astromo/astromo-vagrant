@@ -21,6 +21,10 @@ cd astromo-vagrant
 
 ## That's it!
 
-Connect to the Vagrant box on `192.168.33.10`
+Connect to the Vagrant box using
+
+`vagrant ssh`
+
+The Vagrant is set up to use the following ip: `192.168.33.10`
 
 

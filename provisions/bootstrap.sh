@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+PROVISIONS=/vagrant/provisions
+PACKAGES=$PROVISIONS/packages
+
 # Set our environment to UTF-8
 echo "LC_ALL='en_US.UTF-8'" >> /etc/environment
 
@@ -8,7 +11,10 @@ apt-get update
 sudo apt-get upgrade -y
 
 # Trust GitHub
-sh /vagrant/provisions/known_hosts.sh
+sh $PROVISIONS/known_hosts.sh
 
 # Install PostgreSQL server
-sh /vagrant/provisions/packages/postgresql/postgresql.sh
+sh $PACKAGES/postgresql/postgresql.sh
+
+# Install InfluxDB, a Time Series Database
+sh $PACKAGES/influxdb/influxdb.sh

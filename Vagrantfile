@@ -8,7 +8,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provider "virtualbox" do |v|
     # Increase our Box's performance
-    v.memory = 1024
+    v.memory = 1500
     v.cpus = 2
     # Enable creating symlinks inside our NFS folder
     # Used for npm install

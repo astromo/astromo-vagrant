@@ -19,7 +19,7 @@ if ! type "psql" > /dev/null; then
 fi
 
 # Install InfluxDB, a Time Series Database
-if ! type "influxdb" > /dev/null; then
+if ! type "/etc/init.d/influxdb" > /dev/null; then
   . $PACKAGES/influxdb/influxdb.sh
 fi
 

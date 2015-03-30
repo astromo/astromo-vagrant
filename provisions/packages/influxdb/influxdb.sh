@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-wget https://s3.amazonaws.com/influxdb/influxdb_latest_amd64.deb
-sudo dpkg -i influxdb_latest_amd64.deb
+wget http://get.influxdb.org/influxdb_0.9.0-rc17_amd64.deb
+dpkg -i influxdb_0.9.0-rc17_amd64.deb
+service influxdb restart

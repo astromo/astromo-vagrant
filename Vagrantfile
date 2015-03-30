@@ -10,6 +10,11 @@ Vagrant.configure(2) do |config|
     # Increase our Box's performance
     v.memory = 1024
     v.cpus = 2
+    # Enable creating symlinks inside our NFS folder
+    # Used for npm install
+    # http://blog.liip.ch/archive/2012/07/25/vagrant-and-node-js-quick-tip.html
+    # http://stackoverflow.com/a/24365338/1139905
+    v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
   end
 
   # Forward our SSH agent
@@ -21,11 +26,6 @@ Vagrant.configure(2) do |config|
 
   # Share everything inside this repo to /vagrant on the host
   config.vm.synced_folder ".", "/vagrant", type: "nfs"
-
-  # Enable creating symlinks inside our NFS folder
-  # Used for npm install
-  # http://blog.liip.ch/archive/2012/07/25/vagrant-and-node-js-quick-tip.html
-  config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
 
   # Bootstrap our Vagrant
   config.vm.provision "shell",

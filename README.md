@@ -33,7 +33,11 @@ Connect to the Vagrant box using
 
 The Vagrant is set up to use the following ip: `192.168.33.10`
 
-## What now?
+## Source Files
+The `src` folder will contain our repos and source code and are synced back and forth using an NFS share to `/vagrant/src` inside the Vagrant box.
+Because of this, you should always make sure that you `npm install` from inside the Vagrant box to compile node modules binaries that are native to the Vagrant OS and not your host OS.
+
+## Utilities
 
 To reprovision your box in case of changes to the Vagrant process, simply
 
@@ -52,5 +56,3 @@ To update all astromo repos, simply use
 ```
 ./scripts/update.sh
 ```
-
-

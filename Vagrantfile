@@ -8,8 +8,16 @@ Vagrant.configure(2) do |config|
 
   config.vm.provider "virtualbox" do |v|
     # Increase our Box's performance
-    v.memory = 1500
+    v.memory = 2048
     v.cpus = 2
+
+    # https://github.com/mitchellh/vagrant/issues/1807#issuecomment-19148156
+    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+
+    # http://superuser.com/questions/850357/how-to-fix-extremely-slow-virtualbox-network-download-speed/850389#850389
+    v.customize ["modifyvm", :id, "--nictype1", "virtio"]
+
     # Enable creating symlinks inside our NFS folder
     # Used for npm install
     # http://blog.liip.ch/archive/2012/07/25/vagrant-and-node-js-quick-tip.html

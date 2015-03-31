@@ -34,7 +34,9 @@ Vagrant.configure(2) do |config|
   config.vm.network "private_network", ip: "192.168.33.10"
 
   # Share everything inside this repo to /vagrant on the host
-  config.vm.synced_folder ".", "/vagrant", type: "nfs"
+  config.vm.synced_folder ".", "/vagrant", type: "nfs",
+  # http://stackoverflow.com/a/28118716/273638
+  mount_options: ['actimeo=1']
 
   # Bootstrap our Vagrant
   config.vm.provision "shell",

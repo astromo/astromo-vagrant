@@ -7,6 +7,7 @@ Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
 
   config.vm.provider "virtualbox" do |v|
+    v.name = "Astromo Dev Box"
     # Increase our Box's performance
     v.memory = 1500
     v.cpus = 2

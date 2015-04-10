@@ -1,4 +1,4 @@
-IOJS_VERSION=1.6.2
+IOJS_VERSION=1.6.4
 
 wget https://iojs.org/dist/v$IOJS_VERSION/iojs-v$IOJS_VERSION-linux-x64.tar.gz
 tar zxf iojs-v$IOJS_VERSION-linux-x64.tar.gz

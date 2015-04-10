@@ -27,6 +27,10 @@ Clone our Astromo repos, make sure to execute this command from the root directo
 
 ## That's it!
 
+Make sure you added your ssh key to the ssh agent using
+
+`ssh-add`
+
 Connect to the Vagrant box using
 
 `vagrant ssh`

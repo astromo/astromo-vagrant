@@ -6,6 +6,9 @@ ASTROMO=$PROVISIONS/astromo
 # Trust GitHub
 . $PROVISIONS/known_hosts.sh
 
+# kill running pm2 processes
+pm2 kill
+
 # Run all Astromo repo code
 for file in $ASTROMO/*.sh; do
   echo "Executing $file"

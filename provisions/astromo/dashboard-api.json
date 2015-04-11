@@ -1,12 +1,13 @@
 {
-  "name"   : "dashboard-api",
-  "script" : "server.js",
-  "cwd"    : "/vagrant/src/dashboard-api/",
-  "watch"  : true,
+  "name"         : "dashboard-api",
+  "script"       : "server.js",
+  "cwd"          : "/vagrant/src/dashboard-api/",
+  "watch"        : true,
+  "ignore_watch" : ["error.log", "node_modules/"],
   "watch_options": {
-    "ignoreInitial" : false,
-    "followSymlinks": true,
-    "usePolling": true
+    "ignoreInitial"  : false,
+    "followSymlinks" : true,
+    "usePolling"     : true
   },
   "env"    : {
     "JWT_SECRET": "foo"

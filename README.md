@@ -15,10 +15,10 @@ git clone git@github.com:astromo/astromo-vagrant.git
 cd astromo-vagrant
 ```
 
-Clone our Astromo repos, make sure to execute this command from the root directory
+Clone our Astromo repos
 
 ```
-./scripts/clone.sh
+git submodule init && git submodule update
 ```
 
 ## Run your Vagrant box

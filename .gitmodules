@@ -1,0 +1,12 @@
+[submodule "src/sallyport"]
+	path = src/sallyport
+	url = git@github.com:astromo/sallyport.git
+	branch = master
+[submodule "src/dashboard-api"]
+	path = src/dashboard-api
+	url = git@github.com:astromo/astromo-api.git
+	branch = master
+[submodule "src/dashboard"]
+	path = src/dashboard
+	url = git@github.com:astromo/dashboard.git
+	branch = master

@@ -8,11 +8,17 @@ This repo will set up a complete Astromo development environment.
 2. Vagrant
 
 ## Installation
-Clone this repo and submodules
+Clone this repo
 
 ```
-git clone --recursive git@github.com:astromo/astromo-vagrant.git
+git clone git@github.com:astromo/astromo-vagrant.git
 cd astromo-vagrant
+```
+
+Clone our Astromo repos
+
+```
+git submodule init && git submodule update
 ```
 
 ## Run your Vagrant box

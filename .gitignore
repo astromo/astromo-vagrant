@@ -1,3 +1,4 @@
 .vagrant/
+src/
 log/
 .DS_Store

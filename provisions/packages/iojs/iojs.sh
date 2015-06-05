@@ -1,4 +1,4 @@
-IOJS_VERSION=1.6.4
+IOJS_VERSION=2.2.1
 
 # Download, verify and install io.js
 gpg --keyserver pool.sks-keyservers.net --recv-keys \

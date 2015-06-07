@@ -27,3 +27,8 @@ fi
 if ! type "iojs" > /dev/null; then
   . $PACKAGES/iojs/iojs.sh
 fi
+
+# Install RethinkDB
+if ! type "rethinkdb" > /dev/null; then
+  . $PACKAGES/rethinkdb/rethinkdb.sh
+fi

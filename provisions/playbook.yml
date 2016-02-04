@@ -1,0 +1,33 @@
+# Author: Michiel De Mey
+---
+- hosts: default                         # Default server name from Vagrant
+  remote_user: "{{ ansible_ssh_user }}"  # Default user name from Vagrant
+
+  vars:
+    # Global variables
+    default_user: astromo
+    postgresql_db: astromo
+
+    # Postgres variables
+    postgresql_version: 9.5
+    postgresql_listen_addresses: '*'
+    postgresql_users:
+      - name: "{{ default_user }}"
+        pass: "{{ default_user }}"
+    postgresql_pg_hba_custom:
+      - { type: host, database: all, user: all, address: '0.0.0.0/0', method: 'md5', comment: 'All remote connections' }
+
+  roles:
+    - { role: ANXS.postgresql, become: yes, become_method: sudo }
+
+  tasks:
+    - name: Create PostgreSQL database
+      postgresql_db: name={{ postgresql_db }}
+                     encoding='UTF-8'
+                     template='template0'
+    - name: Enable PgCrypto extention
+      postgresql_ext: name=pgcrypto db={{ postgresql_db }}
+
+  post_tasks:
+    - name: Seed PostgreSQL database
+      command: psql -f /vagrant/provisions/seed/astromo.sql -d {{ default_user }} -U {{ default_user }}

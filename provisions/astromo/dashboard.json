@@ -1,6 +1,0 @@
-{
-  "name"   : "dashboard",
-  "cwd"    : "/vagrant/src/dashboard/",
-  "script" : "/usr/local/bin/grunt",
-  "args"   : "serve"
-}

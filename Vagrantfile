@@ -33,18 +33,30 @@ Vagrant.configure(2) do |config|
   # using a specific IP.
   config.vm.network "private_network", ip: "192.168.33.10"
 
+  # Forward certain ports to the host machine
+  config.vm.network "forwarded_port", guest: 5432, host: 5432 # PostgreSQL
+
   # Share everything inside this repo to /vagrant on the host
   config.vm.synced_folder ".", "/vagrant", type: "nfs",
   # http://stackoverflow.com/a/28118716/273638
   mount_options: ['actimeo=1']
 
-  # Bootstrap our Vagrant
-  config.vm.provision "shell",
-  path: "provisions/bootstrap.sh",
-  privileged: true
+  # Ansible provisioning
+  config.vm.provision "ansible" do |ansible|
+    # Uncomment for verbose logging (debug)
+    # ansible.verbose = "vv"
+    ansible.playbook = "provisions/playbook.yml"
+    # Forward SSH agent
+    ansible.raw_ssh_args = ['-o ForwardAgent=yes']
+  end
 
-  # Run our code
-  config.vm.provision "shell",
-  path: "provisions/run.sh",
-  privileged: false
+  # # Bootstrap our Vagrant
+  # config.vm.provision "shell",
+  # path: "provisions/bootstrap.sh",
+  # privileged: true
+
+  # # Run our code
+  # config.vm.provision "shell",
+  # path: "provisions/run.sh",
+  # privileged: false
 end
